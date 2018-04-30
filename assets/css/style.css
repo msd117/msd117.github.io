@@ -1812,3 +1812,6 @@ Icon for all respective meta
     padding: 5px;
     box-shadow: 0 0px 0px 1px #eee;
 }
+.logoimage{
+    width: 45 !important;
+}
