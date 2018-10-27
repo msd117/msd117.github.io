@@ -12,7 +12,7 @@
 
     $subject    = strip_tags($_POST['subject']);
     $email       = strip_tags($_POST['email']);
-    $phone      = strip_tags($_POST['phone']);
+    // $phone      = strip_tags($_POST['phone']);
     $name       = strip_tags($_POST['name']);
     $message    = nl2br( htmlspecialchars($_POST['message'], ENT_QUOTES) );
     $result     = array();
@@ -52,11 +52,12 @@
         '{{email}}'=>$email,
         '{{message}}'=>$message,
         '{{name}}'=>$name,
-        '{{phone}}'=>$phone
+        // '{{phone}}'=>$phone
         );
 
 
-    $templateContents = file_get_contents( dirname(__FILE__) . '/email-templates/'.$email_template);
+    // $templateContents = file_get_contents( dirname(__FILE__) . '/email-templates/'.$email_template);
+    $templateContents = file_get_contents("https://msd117.github.io/email-templates/simple.html"); 
 
     $contents =  strtr($templateContents, $templateTags);
 
