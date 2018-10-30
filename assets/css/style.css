@@ -1929,7 +1929,20 @@ Icon for all respective meta
     width: 45% !important;
 }
 
+.quoteoftheday {
+    display: block;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 28px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #282828;
+    margin: 0;
+    text-transform: uppercase;
+}
+
 .quoteoftheday b {
+    display: block;
     text-align: center;
     font-size: 24px;
     line-height: 24px;
