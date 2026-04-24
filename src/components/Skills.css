@@ -1,0 +1,143 @@
+/* ===== Skills Section ===== */
+.skills {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+/* Skill Bars Grid */
+.skills__bars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 48px;
+  margin-bottom: 64px;
+}
+
+.skill-bar {
+  padding: 0;
+}
+
+.skill-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-bar__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-bar__percent {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.skill-bar__track {
+  height: 8px;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-bar__fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 1.5s ease;
+}
+
+/* More Skills Header */
+.skills__more-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skills__more-header h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.skills__more-header h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--gradient-primary);
+}
+
+/* Circle Skills Grid */
+.skills__circles-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+
+.circle-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.circle-skill__ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-skill__ring svg {
+  transform: rotate(-90deg);
+}
+
+.circle-skill__bg {
+  stroke: rgba(99, 102, 241, 0.08);
+}
+
+.circle-skill__progress {
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circle-skill__value {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.circle-skill__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .skills__circles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills__bars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills__circles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
