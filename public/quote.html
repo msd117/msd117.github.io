@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #f1f5f9;
+      background: transparent;
+      text-align: center;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    
+    /* Hide the "Today's Quote" plain text if possible, or style it */
+    div, span, p {
+      margin-bottom: 10px;
+    }
+
+    /* BrainyQuote injects links, we need to style them to match our dark theme */
+    a {
+      color: #f1f5f9 !important;
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.6;
+      display: block;
+      transition: color 0.3s ease;
+      margin: 8px 0;
+    }
+    
+    a:hover {
+      color: #a78bfa !important;
+    }
+
+    /* Style the author link which usually comes after a <br> */
+    a:nth-of-type(2) {
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      font-style: normal !important;
+      color: #8b5cf6 !important;
+      margin-top: 16px !important;
+      letter-spacing: 1px !important;
+      text-transform: uppercase !important;
+    }
+  </style>
+</head>
+<body>
+  <script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>
+</body>
+</html>
