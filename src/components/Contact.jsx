@@ -21,17 +21,47 @@ const Contact = () => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, send data to a backend
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      // Send data to Formspree endpoint
+      const response = await fetch("https://formspree.io/f/mzdyozrv", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        const data = await response.json();
+        setError(data.error || "Oops! There was a problem submitting your form");
+      }
+    } catch (err) {
+      setError("Oops! There was a problem submitting your form");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactCards = [
@@ -170,9 +200,10 @@ const Contact = () => {
               type="submit"
               className="btn btn--primary contact__submit"
               id="contact-submit-btn"
+              disabled={isSubmitting}
             >
               <FaPaperPlane />
-              {submitted ? "Message Sent!" : "Send Message"}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
 
             {submitted && (
@@ -182,6 +213,17 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 ✓ Thank you! Your message has been sent successfully.
+              </motion.p>
+            )}
+
+            {error && (
+              <motion.p
+                className="contact__error"
+                style={{ color: "#ff4d4f", marginTop: "1rem", textAlign: "center" }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {error}
               </motion.p>
             )}
           </form>
