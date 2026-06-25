@@ -18,7 +18,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <span className="footer__logo">MSD</span>
+          <span className="footer__logo">Eleven7</span>
           <span className="footer__logo-dot">.</span>
         </div>
 
