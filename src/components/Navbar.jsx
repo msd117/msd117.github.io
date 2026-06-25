@@ -48,7 +48,7 @@ const Navbar = () => {
             scrollTo("home");
           }}
         >
-          <span className="navbar__logo-text">MSD</span>
+          <span className="navbar__logo-text">Eleven7</span>
           <span className="navbar__logo-dot">.</span>
         </a>
 
