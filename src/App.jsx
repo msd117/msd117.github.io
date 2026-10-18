@@ -1,26 +1,29 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Resume from "./components/Resume";
-import Skills from "./components/Skills";
+import Marquee from "./components/Marquee";
+import Career from "./components/Career";
+import AiSection from "./components/AiSection";
+import Stack from "./components/Stack";
+import Education from "./components/Education";
 import QuoteOfTheDay from "./components/QuoteOfTheDay";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
+    <div className="page">
+      <a className="skip" href="#work">Skip to career</a>
       <Navbar />
-      <main>
+      <main id="top">
         <Hero />
-        <About />
-        <Resume />
-        <Skills />
+        <Marquee />
+        <Career />
+        <AiSection />
+        <Stack />
+        <Education />
         <QuoteOfTheDay />
         <Contact />
       </main>
-      <Footer />
-    </>
+    </div>
   );
 }
 

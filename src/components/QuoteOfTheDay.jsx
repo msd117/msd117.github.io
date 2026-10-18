@@ -1,38 +1,40 @@
-import { motion } from "framer-motion";
-import { FaQuoteLeft } from "react-icons/fa";
-import "./QuoteOfTheDay.css";
+import resumeData from "../data/resumeData";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+// Same quote for every visitor on a given (local) day; it changes at midnight.
+const pickQuote = (date) => {
+  const quotes = resumeData.quotes;
+  const day = Math.floor((date.getTime() - date.getTimezoneOffset() * 60000) / 86400000);
+  return quotes[day % quotes.length];
 };
 
 const QuoteOfTheDay = () => {
+  const today = new Date();
+  const quote = pickQuote(today);
+  const dateLabel = today.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+
   return (
-    <section className="quote-section section-padding">
-      <div className="container">
-        <motion.div
-          className="quote-card glass-card"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-        >
-          <div className="quote-icon">
-            <FaQuoteLeft />
+    <section className="light" aria-labelledby="qotd-h">
+      <div className="wrap qotd__pad">
+        <figure className="term">
+          <div className="code__bar">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <h2 id="qotd-h" className="mono code__file">quote of the day</h2>
+            <time className="mono term__date" dateTime={today.toISOString().slice(0, 10)}>{dateLabel}</time>
           </div>
-          
-          <div className="quote-content">
-            <h2 className="quote-title">Quote of the Day</h2>
-            {/* We use an iframe to safely load the BrainyQuote script because it uses document.write(), which would break React if injected directly */}
-            <iframe
-              src="/quote.html"
-              title="Quote of the Day"
-              className="quote-iframe"
-              scrolling="no"
-            ></iframe>
+          <div className="term__body">
+            <p className="mono term__line">
+              <span className="term__path">~/msd</span> <span className="term__dollar">$</span> fortune --today
+            </p>
+            <blockquote className="disp term__quote">“{quote.text}”</blockquote>
+            <figcaption className="mono term__by">— {quote.by}</figcaption>
+            <p className="mono term__line" aria-hidden="true">
+              <span className="term__path">~/msd</span> <span className="term__dollar">$</span>{" "}
+              <span className="caret term__cursor" />
+            </p>
           </div>
-        </motion.div>
+        </figure>
       </div>
     </section>
   );

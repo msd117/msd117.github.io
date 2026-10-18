@@ -1,128 +1,99 @@
-import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaStackOverflow,
-  FaLinkedinIn,
-  FaInstagram,
-  FaChevronDown,
-} from "react-icons/fa";
 import resumeData from "../data/resumeData";
-import "./Hero.css";
+import { Mail, Download, SocialIcon } from "./Icons";
 
-const iconMap = {
-  FaGithub: FaGithub,
-  FaStackOverflow: FaStackOverflow,
-  FaLinkedinIn: FaLinkedinIn,
-  FaInstagram: FaInstagram,
+const Str = ({ children }) => <span className="code__str">"{children}"</span>;
+
+const List = ({ items }) =>
+  items.map((item, i) => (
+    <span key={item}>
+      <Str>{item}</Str>
+      {i < items.length - 1 ? ", " : ""}
+    </span>
+  ));
+
+// Moves the soft spotlight behind the hero with the pointer (no re-render).
+const moveSpot = (e) => {
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  el.style.setProperty("--my", `${e.clientY - r.top}px`);
 };
 
 const Hero = () => {
+  const d = resumeData;
+  const code = d.profileCode;
+  const since = d.experience[d.experience.length - 1].start.slice(0, 4);
+
   return (
-    <section id="home" className="hero">
-      {/* Animated background elements */}
-      <div className="hero__bg">
-        <div className="hero__orb hero__orb--1"></div>
-        <div className="hero__orb hero__orb--2"></div>
-        <div className="hero__orb hero__orb--3"></div>
-        <div className="hero__grid-overlay"></div>
-      </div>
+    <section className="hero" onPointerMove={moveSpot} aria-labelledby="name">
+      <div className="hero__dots" aria-hidden="true" />
+      <div className="hero__spot" aria-hidden="true" />
+      <div className="hero__inner wrap">
+        <div className="hero__copy rise">
+          <div className="hero__pill">
+            <img src={d.photo} alt={`Portrait of ${d.name}`} width="32" height="32" />
+            <span>
+              {d.title} at <strong>{d.company}</strong> · {d.shortLocation}
+            </span>
+          </div>
 
-      <div className="container hero__content">
-        <motion.div
-          className="hero__text"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.span
-            className="hero__greeting"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Hello, I am
-          </motion.span>
+          <h1 id="name" className="hero__name disp">
+            <span>{d.firstLine}</span>
+            <span className="hero__last">
+              {d.secondLine}
+              <span className="caret hero__caret" aria-hidden="true" />
+            </span>
+          </h1>
 
-          <motion.h1
-            className="hero__name"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {resumeData.name}
-            <span className="hero__name-accent"> {resumeData.lastName}</span>
-          </motion.h1>
+          <p className="hero__lead">
+            I build enterprise web and mobile apps — <em>React, Angular and Ext JS</em> in the browser,{" "}
+            <em>Ionic, React Native and Sencha Touch</em> on the phone, <em>Python</em> wherever it saves a day — and{" "}
+            <em>AI agents</em> in the loop from design to code.
+          </p>
 
-          <motion.div
-            className="hero__role"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <span className="hero__role-badge">{resumeData.title}</span>
-          </motion.div>
-
-          <motion.p
-            className="hero__description"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            {resumeData.tagline}
-          </motion.p>
-
-          <motion.div
-            className="hero__social"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
-            {resumeData.social.map((item, i) => {
-              const Icon = iconMap[item.icon];
-              return (
-                <a
-                  key={i}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero__social-link"
-                  aria-label={item.name}
-                  id={`social-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  <Icon />
+          <div className="hero__actions">
+            <a className="btn btn--hot btn--lg press" href={`mailto:${d.email}`}>
+              <Mail /> Start a conversation
+            </a>
+            <a className="btn btn--line btn--lg press" href={d.resumePdf}>
+              <Download /> Résumé PDF
+            </a>
+            <div className="hero__social">
+              {d.social.map((s) => (
+                <a key={s.name} className="icon-btn press" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.name}>
+                  <SocialIcon name={s.icon} />
                 </a>
-              );
-            })}
-          </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
 
-          <motion.div
-            className="hero__cta"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-          >
-            <a href="#contact" className="btn btn--primary" id="hero-contact-btn">
-              Get In Touch
-            </a>
-            <a href="#resume" className="btn btn--outline" id="hero-resume-btn">
-              View Resume
-            </a>
-          </motion.div>
-        </motion.div>
+        <div className="hero__card-wrap">
+          <figure className="code float" aria-label="Profile summary written as code">
+            <div className="code__bar">
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span className="mono code__file">engineer.ts</span>
+            </div>
+            <pre className="mono code__body">
+              <span className="code__comment">// nine years, still shipping</span>
+              {"\n"}
+              <span className="code__kw">export const</span> <span className="code__id">engineer</span> = {"{\n"}
+              {"  name: "}<Str>{d.name}</Str>,{"\n"}
+              {"  role: "}<Str>{d.title}</Str>,{"\n"}
+              {"  since: "}<span className="code__num">{since}</span>,{"\n"}
+              {"  web: ["}<List items={code.web} />],{"\n"}
+              {"  mobile: ["}<List items={code.mobile} />],{"\n"}
+              {"  scripting: ["}<List items={code.scripting} />],{"\n"}
+              {"  ai: ["}<List items={code.ai} />],{"\n"}
+              {"  based: "}<Str>{`${d.shortLocation}, IN`}</Str>,{"\n"}
+              {"};"}
+              <span className="caret code__caret" aria-hidden="true" />
+            </pre>
+          </figure>
+        </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="hero__scroll"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-      >
-        <a href="#about" className="hero__scroll-link">
-          <span>Scroll Down</span>
-          <FaChevronDown className="hero__scroll-icon" />
-        </a>
-      </motion.div>
     </section>
   );
 };

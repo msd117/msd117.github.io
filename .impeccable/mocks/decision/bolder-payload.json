@@ -1,0 +1,118 @@
+{
+  "title": "Choose the visual world",
+  "question": "A bolder hand. The cape leads. An arcade marquee row is held back if you re-roll again.",
+  "options": [
+    {
+      "id": "cape",
+      "kind": "assigned",
+      "catalogId": "textiles-weave-drape-fashion-drawcord-transforming-cape",
+      "label": "The Drawcord Cape",
+      "kicker": "THE ROLL",
+      "lineage": "One black silk semicircle gathered by a single gold cord",
+      "thesis": "The career is the cloth. One pull gathers it into the job he holds now.",
+      "palette": ["#141414", "#C6A15A", "#3A3A3A", "#E7E2D6"],
+      "materials": ["matte black silk", "one gold drawcord", "graphite channel stitching"],
+      "viewport": "The silk fills the screen. Stitched across it: MOHD SOHEL DESHMUKH. The gathered volume reads Senior Software Engineer, Biz4Solutions, April 2025 – Present. The cord locks on deshmukh.sohel@yahoo.com. Home, Work, Contact ride the stitch channels. Earlier roles sit flat in the cloth.",
+      "risk": "Reads as fashion before it reads as a person you can hire.",
+      "raised": [
+        {
+          "from": "Floated pigment",
+          "raise": "One pull displaces the entire cloth. Earlier roles are pushed outward, not listed beside it."
+        },
+        {
+          "from": "Collective plate",
+          "raise": "The present role lifts off the silk. Earlier roles stay flat in the weave."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/bolder-cape.png",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-drawcord-transforming-cape-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-drawcord-transforming-cape.webp"
+    },
+    {
+      "id": "ribbon",
+      "kind": "challenger",
+      "catalogId": "exhibition-museum-curation-provenance-ribbon",
+      "label": "The Provenance Ribbon",
+      "verdict": "wins",
+      "lineage": "One red silk ribbon through every place a record has been",
+      "thesis": "Employment is custody. The ribbon runs from 2017 to the job he holds, and the email is the present end.",
+      "palette": ["#E6D7C3", "#B42318", "#8A8680", "#1A1612"],
+      "materials": ["archival buff paper", "one red silk ribbon", "fading stamp ink"],
+      "viewport": "Buff ground, one red ribbon from March 2017 to now. Folds: Software Engineer, Softworx; Programmer, Biz4Solutions; Senior Programmer; then April 2025 – Present, Senior Software Engineer. The name is set at the start. The email is the ribbon’s current claim.",
+      "case": "Beats the cape on both counts. A recruiter can follow dated jobs, and the present end is the email.",
+      "risk": "Turns a living engineer into an object in a museum.",
+      "comp": ".impeccable/mocks/decision/bolder-ribbon.png",
+      "hero": "https://impeccable.style/worlds/cards/exhibition-museum-curation-provenance-ribbon-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/exhibition-museum-curation-provenance-ribbon.webp"
+    },
+    {
+      "id": "bench",
+      "kind": "challenger",
+      "catalogId": "operate-a-cutting-bench-select-rail",
+      "label": "The Cutting Bench",
+      "verdict": "competitive",
+      "lineage": "A film select rail, frames on pins, a tape flag where you stopped",
+      "thesis": "The career is a work print. The flag marks the role he holds now, and you scrub the rail.",
+      "palette": ["#0A0A0A", "#E25A1C", "#F4F1EA"],
+      "materials": ["true black", "flag orange film grain", "punched white windows"],
+      "viewport": "A perforated rail across a black sheet. Frames: 2017 Softworx, 2019 Programmer, 2022 Senior Programmer. The flagged frame is April 2025 – Present, Senior Software Engineer, Biz4Solutions, Mohd Sohel Deshmukh. The email sits in that frame’s white window.",
+      "case": "Holds clarity: the flag is the current job and the rail is the drag. It loses the audience. A cutting bench is an editor’s tool, not a hiring scene.",
+      "risk": "Orange-on-black becomes a poster if the frames stop being a rail you can scrub.",
+      "comp": ".impeccable/mocks/decision/bolder-bench.png",
+      "hero": "https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail.webp"
+    },
+    {
+      "id": "ebru",
+      "kind": "challenger",
+      "catalogId": "medium-native-ebru-floated-pigment",
+      "label": "Floated Pigment",
+      "verdict": "declined",
+      "lineage": "Pigment combed on a bath and lifted once onto paper",
+      "thesis": "Each role is a ring pushed outward by the next drop.",
+      "palette": ["#F4EFE4", "#1F4D3A", "#C4512C", "#1A2744"],
+      "materials": ["a thickened bath", "floating pigment", "one lifted sheet"],
+      "viewport": "Rings of pigment, the newest drop labeled with the current role.",
+      "case": "Rings do not state an employer a recruiter can read.",
+      "kept": "One pull displaces the whole surface.",
+      "risk": "Beautiful, and the job disappears into the pattern.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment.webp"
+    },
+    {
+      "id": "toyism",
+      "kind": "challenger",
+      "catalogId": "design-canon-toyism-signed-collective-plate",
+      "label": "The Collective Plate",
+      "verdict": "declined",
+      "lineage": "A shared symbol set, hard edges, a corner mark",
+      "thesis": "The current role is the symbol that hovers. The name sits in the corner.",
+      "palette": ["#1C4E8C", "#E23D8C", "#F2E23A", "#F7F4EC"],
+      "materials": ["flat unblended colour", "hard-edged symbols"],
+      "viewport": "Cobalt, magenta, and lemon figures. One symbol hovers. A corner mark.",
+      "case": "A pseudonym grammar fights a real name, and the symbols do not carry the jobs.",
+      "kept": "The present role lifts clear of the ground. Earlier roles stay flat.",
+      "risk": "An art plate with a résumé pasted on.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-toyism-signed-collective-plate-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/design-canon-toyism-signed-collective-plate.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The developer portfolio this category always ships: a dark hero, a name, two buttons, then cards.",
+    "palette": ["#0A0A0F", "#6366F1", "#F1F5F9", "#1A1A2E"],
+    "materials": ["near-black ground", "indigo glow", "glass cards"],
+    "viewport": "Centered hello, the full name, a Senior Software Engineer badge, Get in Touch and View Resume, gradient orbs behind. The next section is a row of equal cards.",
+    "risk": "Indistinguishable from every other engineer template, including the site as it stands.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}

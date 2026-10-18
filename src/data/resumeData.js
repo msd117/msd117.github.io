@@ -1,137 +1,177 @@
-const resumeData = {
-  name: "Mohd Sohel",
-  lastName: "Deshmukh",
-  title: "Senior Software Engineer",
-  tagline:
-    "I am a Senior Software Engineer with over 9 years of experience in full-stack development, specializing in React, Angular, Java, and Python. I build scalable web applications and enterprise solutions.",
+// All site content lives here. Edit this file to update the page — no layout code needed.
 
-  about: {
-    name: "Mohd Sohel Deshmukh",
-    address: "Pune, Maharashtra, India",
-    nationality: "Indian",
-    phone: "+91 8668828021",
-    email: "deshmukh.sohel@yahoo.com",
-    objective:
-      "To work in an organization where I can learn new technologies and apply creative methods to solve complex problems, while continuously enhancing my technical knowledge. As an experienced engineer, I aim to drive technical excellence and deliver robust software solutions.",
-    whatIDo:
-      "I have been working as a Software Engineer since 2017. Over the years, I've developed deep expertise in both frontend and backend development. I currently work as a Senior Software Engineer at Biz4Solutions, where I architect enterprise-grade applications, integrate complex APIs, and ensure smooth, intuitive user experiences across web and mobile platforms.",
-    whatIDoList: ["Full-Stack Web Development", "Enterprise Application Architecture", "API Integration & Backend Systems"],
-  },
+const resumeData = {
+  name: "Mohd Sohel Deshmukh",
+  firstLine: "Mohd Sohel",
+  secondLine: "Deshmukh",
+  title: "Senior Software Engineer",
+  company: "Biz4Solutions",
+  location: "Pune, Maharashtra, India",
+  shortLocation: "Pune",
+  email: "deshmukh.sohel@yahoo.com",
+  // Phone is hidden from the public site. To show it again, set e.g.
+  // phone: "+91 00000 00000", phoneHref: "tel:+910000000000"
+  phone: null,
+  phoneHref: null,
+  resumePdf: "/mohdsoheldeshmukh.pdf",
+  photo: "/me.jpg",
+  formspreeEndpoint: "https://formspree.io/f/mzdyozrv",
 
   social: [
+    { name: "GitHub", url: "https://github.com/msd117", icon: "github" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/deshmukhmohdsohel", icon: "linkedin" },
+    { name: "Stack Overflow", url: "https://stackoverflow.com/users/7755864/msd", icon: "stackoverflow" },
+  ],
+
+  navLinks: [
+    { label: "Career", href: "#work" },
+    { label: "AI", href: "#ai" },
+    { label: "Stack", href: "#stack" },
+    { label: "Education", href: "#education" },
+    { label: "Contact", href: "#contact" },
+  ],
+
+  // Shown in the code card at the top of the page
+  profileCode: {
+    web: ["React", "Angular", "Ext JS"],
+    mobile: ["Ionic", "React Native", "Sencha Touch"],
+    scripting: ["Python"],
+    ai: ["Claude", "Cursor", "Superpowers", "BMAD"],
+  },
+
+  marquee: ["React", "Angular", "Ionic", "React Native", "Sencha Touch", "Ext JS", "Python"],
+
+  careerStats: [
+    { label: "Shipping since", value: "2017" },
+    { label: "Promotions", value: "2" },
+    { label: "Platforms", value: "Web + Mobile" },
+  ],
+
+  // Career, newest first. Dates are "YYYY-MM"; end: null means present.
+  // tech: technologies; hot: technologies to highlight; domains: business domains.
+  experience: [
     {
-      name: "GitHub",
-      url: "https://github.com/msd117",
-      icon: "FaGithub",
+      id: "sse",
+      role: "Senior Software Engineer",
+      company: "Biz4Solutions Private Limited",
+      companyShort: "Biz4Solutions",
+      start: "2025-04",
+      end: null,
+      tag: "tag: v3 · HEAD → main",
+      text: "Leading front-end and mobile work on enterprise products: React and Angular on the web, Ionic and React Native on mobile. Currently migrating a legacy-framework app to React Native, with Claude driving design and code.",
+      tech: ["React Native", "React", "Angular", "Ionic", "Python", "Claude", "Cursor"],
+      hot: ["React Native", "React"],
+      domains: [],
     },
     {
-      name: "Stack Overflow",
-      url: "https://stackoverflow.com/users/7755864/msd",
-      icon: "FaStackOverflow",
+      id: "sp",
+      role: "Senior Programmer",
+      company: "Biz4Solutions Private Limited",
+      companyShort: "Biz4Solutions",
+      start: "2022-04",
+      end: "2025-06",
+      tag: "tag: v2",
+      text: "Built and maintained enterprise applications in Ionic, Angular, Sencha Touch and Ext JS, from data-heavy grids and forms to mobile apps in the field.",
+      tech: ["Ionic", "Angular", "Sencha Touch", "Ext JS"],
+      hot: [],
+      domains: [],
     },
     {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/deshmukhmohdsohel",
-      icon: "FaLinkedinIn",
+      id: "p",
+      role: "Programmer",
+      company: "Biz4Solutions Private Limited",
+      companyShort: "Biz4Solutions",
+      start: "2019-07",
+      end: "2022-04",
+      tag: "merge",
+      text: "Developed full-stack applications across web and mobile and integrated third-party and in-house APIs.",
+      tech: ["Angular", "Ionic", "REST APIs"],
+      hot: [],
+      domains: [],
     },
     {
-      name: "Instagram",
-      url: "https://www.instagram.com/msd117/",
-      icon: "FaInstagram",
+      id: "se",
+      role: "Software Engineer",
+      company: "Softworx Technologies",
+      companyShort: "Softworx",
+      start: "2017-03",
+      end: "2019-07",
+      tag: "init",
+      text: "Mobile banking and UPI payment apps for the banking domain, built on Ionic v1 and Cordova: the UI in HTML5 and CSS3, all mobile-side code and the banking API integration.",
+      tech: ["Ionic v1", "AngularJS", "Cordova", "HTML5 & CSS3"],
+      hot: [],
+      domains: ["Banking", "Mobile banking", "UPI payments"],
     },
+  ],
+
+  // The dashed branch on the career graph
+  currentProject: {
+    id: "rn",
+    role: "React Native migration",
+    company: "Biz4Solutions · current project",
+    branch: "feat/react-native-migration",
+    start: "2026-01",
+    datesLabel: "2026 — in progress",
+    lengthLabel: "AI-led",
+    text: "Moving an existing app from a legacy framework to React Native. Claude drives the new design and much of the code; Superpowers and BMAD workflows keep planning, tests and review disciplined.",
+    tech: ["React Native", "Claude", "Cursor", "Superpowers", "BMAD"],
+    domains: [],
+  },
+
+  ai: {
+    heading: "Built with AI.",
+    headingMuted: "Owned by an engineer.",
+    intro: "AI agents sit inside my workflow — brainstorming, planning, design, code and review. The judgment and the shipping stay mine.",
+    utilities: {
+      title: "Utilities built entirely with AI",
+      text: "Internal tools taken from idea to working software end‑to‑end with AI agents — spec, code, tests and fixes.",
+    },
+    toolkit: [
+      { name: "Claude", use: "Design and code" },
+      { name: "Cursor", use: "AI-first editor" },
+      { name: "Superpowers", use: "Agent skills workflow" },
+      { name: "BMAD Method", use: "Agentic planning & delivery" },
+    ],
+    workflow: [
+      { step: "brainstorm", text: "Shape the problem and the design with Claude" },
+      { step: "plan", text: "Spec and stories with the BMAD agents" },
+      { step: "build", text: "Test-first implementation with Superpowers skills in Cursor" },
+      { step: "review", text: "Agent code review, then mine" },
+      { step: "ship", text: "Verified, merged, released" },
+    ],
+  },
+
+  stack: [
+    { id: "react", title: "React & React Native", text: "One component model for the web and for native iOS and Android apps.", art: "tree", tone: "light" },
+    { id: "angular", title: "Angular", text: "Large, structured web applications with typed modules that stay maintainable.", art: "window", tone: "light" },
+    { id: "ionic", title: "Ionic & Cordova", text: "Hybrid apps since 2017 — from Ionic v1 mobile banking and UPI apps to today’s enterprise mobile.", art: "phones", tone: "dark" },
+    { id: "sencha", title: "Sencha Touch & Ext JS", text: "Data-heavy enterprise interfaces — grids, forms and dashboards built to be used all day.", art: "grid", tone: "light" },
+    { id: "python", title: "Python", text: "Scripts, services and automation behind the interfaces.", art: "terminal", tone: "light" },
+    { id: "apis", title: "APIs & architecture", text: "Integrating complex APIs and shaping enterprise apps so web and mobile share one backend.", art: "nodes", tone: "accent" },
   ],
 
   education: [
     {
-      period: "2013 – 2016",
-      degree: "Master of Technology",
-      field: "Computer Science and Engineering",
-      description:
-        "Master of Technology in Computer Science and Engineering from Dr Babasaheb Ambedkar Marathwada University, Aurangabad, Maharashtra.",
+      period: "2013 — 2016",
+      degree: "M.Tech, Computer Science & Engineering",
+      school: "Dr. Babasaheb Ambedkar Marathwada University, Aurangabad",
     },
     {
-      period: "2008 – 2012",
-      degree: "Bachelor of Engineering",
-      field: "Information Technology",
-      description:
-        "Bachelor of Engineering in Information Technology from P.E.S College of Engineering, Dr Babasaheb Ambedkar Marathwada University, Aurangabad, Maharashtra.",
-    },
-    {
-      period: "2006 – 2008",
-      degree: "Higher Secondary Certificate",
-      field: "Science",
-      description:
-        "Higher Secondary Certificate from Maulana Azad College, Aurangabad, Maharashtra.",
-    },
-    {
-      period: "1996 – 2006",
-      degree: "Secondary School Certificate",
-      field: "Burhani National",
-      description:
-        "Secondary School Certificate from Burhani National English High School, Aurangabad, Maharashtra.",
+      period: "2008 — 2012",
+      degree: "B.E., Information Technology",
+      school: "P.E.S. College of Engineering, Aurangabad",
     },
   ],
 
-  experience: [
-    {
-      period: "April 2025 – Present",
-      role: "Senior Software Engineer",
-      company: "Biz4Solutions Private Limited",
-      description:
-        "Working on the latest enterprise applications and backend systems in Java, C, and C++.",
-    },
-    {
-      period: "April 2022 – June 2025",
-      role: "Senior Programmer",
-      company: "Biz4Solutions Private Limited",
-      description:
-        "Worked on the latest Ionic framework, Angular web apps and Sencha web apps.",
-    },
-    {
-      period: "July 2019 – April 2022",
-      role: "Programmer",
-      company: "Biz4Solutions Private Limited",
-      description:
-        "Developing full-stack applications and integrating APIs.",
-    },
-    {
-      period: "March 2017 – July 2019",
-      role: "Software Engineer",
-      company: "Softworx Technologies",
-      description:
-        "Mostly responsible for creating the User Interface design for mobile apps in HTML5 and CSS3 using Cordova and Ionic framework. Also handled all the Mobile side coding and API integration.",
-    },
-  ],
-
-  skills: [
-    { name: "JavaScript", level: 85, color: "#a78bfa" },
-    { name: "Angular", level: 90, color: "#dd0031" },
-    { name: "React", level: 90, color: "#61dafb" },
-    { name: "Python", level: 90, color: "#3776ab" },
-    { name: "HTML / CSS", level: 80, color: "#6366f1" },
-    { name: "C / C++", level: 80, color: "#659ad2" },
-  ],
-
-  moreSkills: [
-    { name: "JAVA", level: 60, color: "#6366f1" },
-    { name: "VB.NET", level: 75, color: "#8b5cf6" },
-    { name: "MS Office", level: 90, color: "#a78bfa" },
-    { name: "Creativity", level: 91, color: "#f43f5e" },
-    { name: "Leadership", level: 53, color: "#10b981" },
-    { name: "Management", level: 68, color: "#6366f1" },
-  ],
-
-  contact: {
-    address: "Pune, Maharashtra, India",
-    phone: "(+91) 8668828021",
-  },
-
-  navLinks: [
-    { label: "Home", href: "home" },
-    { label: "About", href: "about" },
-    { label: "Resume", href: "resume" },
-    { label: "Skills", href: "skills" },
-    { label: "Contact", href: "contact" },
+  // Quote of the day: one is picked per calendar day. Add your own lines here.
+  quotes: [
+    { text: "Simplicity is prerequisite for reliability.", by: "Edsger W. Dijkstra" },
+    { text: "First, solve the problem. Then, write the code.", by: "John Johnson" },
+    { text: "Make it work, make it right, make it fast.", by: "Kent Beck" },
+    { text: "Programs must be written for people to read, and only incidentally for machines to execute.", by: "Harold Abelson" },
+    { text: "The best way to predict the future is to invent it.", by: "Alan Kay" },
+    { text: "Talk is cheap. Show me the code.", by: "Linus Torvalds" },
+    { text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", by: "Martin Fowler" },
   ],
 };
 

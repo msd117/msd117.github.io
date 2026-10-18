@@ -1,0 +1,170 @@
+{
+  "title": "Choose the visual world",
+  "question": "One direction is ready for the resume. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "The Lit Bay",
+      "kicker": "THE ROLL",
+      "lineage": "A Pune IT-park tower after the other floors have gone dark",
+      "thesis": "The current job is the one window still lit; the career is the rest of the facade, and you drag it.",
+      "palette": ["#0E1624", "#1C3048", "#E7A15A", "#D5DDE6", "#F4EFE6"],
+      "materials": ["blue-black curtain-wall glass", "one tungsten interior", "frost-etched lettering"],
+      "viewport": "The facade fills the frame and runs off both edges. MOHD SOHEL DESHMUKH is etched into the glass at building scale. One bay glows tungsten: Senior Software Engineer, Biz4Solutions, April 2025 – Present. A lobby plate at the glass line is the email, pressable. Darker floors below are the earlier roles, dates only.",
+      "risk": "If the glass is only a dark theme with a warm spot, it collapses into the portfolio template this site already is.",
+      "raised": [
+        {
+          "from": "Linocut broadside",
+          "raise": "The name and role are cut into the glass at monumental scale, not captioned beside a picture of a building."
+        },
+        {
+          "from": "Garden guide map",
+          "raise": "The current role swells until the lit bay leaves the frame on two sides. Earlier jobs are coastlines in the glass, not equal cards."
+        },
+        {
+          "from": "Multiplane cel",
+          "raise": "The near pane (now) and the far floors (then) travel at different speeds, so a drag has depth."
+        },
+        {
+          "from": "ASCII scene",
+          "raise": "One light does all the modeling. Tungsten is the only warm ink; everything else is the glass’s own blue-black."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "The Visiting Card",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "The cotton card an engineer hands across a desk in Pune",
+      "thesis": "The whole first screen is one thick card: name, designation, and the email you would actually use.",
+      "palette": ["#F3EDE3", "#1C1917", "#8C7348", "#C9BBA8"],
+      "materials": ["cotton paper", "debossed type", "a dull brass edge"],
+      "viewport": "One visiting card fills the viewport, edge and thickness visible. Debossed: MOHD SOHEL DESHMUKH. Under it, Senior Software Engineer, Biz4Solutions. The email is set like a telephone number and is the only action.",
+      "risk": "A large cotton card and a debossed name is where refined resume sites usually land.",
+      "comp": ".impeccable/mocks/decision/model-pick.png"
+    },
+    {
+      "id": "challenger-akari",
+      "kind": "challenger",
+      "catalogId": "paper-folds-pleats-deployable-akari-light-sculpture",
+      "label": "Paper Lanterns",
+      "verdict": "competitive",
+      "lineage": "Washi lamps folded over bamboo, one bulb deciding which volume is inhabited",
+      "thesis": "Each role is a paper volume. The present job is the one lit from inside; the earlier ones wait folded flat.",
+      "palette": ["#1A1614", "#F3E6C8", "#C4A574", "#2A2622", "#C73E2A"],
+      "materials": ["candlelit washi", "bamboo ribs", "a vermilion stamp"],
+      "viewport": "A dim room. One tall paper column glows, the name on the washi, Senior Software Engineer readable through the light. Three flat rib outlines on the wall are the earlier jobs. The email is a vermilion stamp you press.",
+      "case": "Holds clarity: lit means now, folded means then, the stamp is the email. It loses the scene a Pune recruiter actually walks into.",
+      "risk": "Reads as a lighting catalogue if the role is not the first thing the glow reveals.",
+      "comp": ".impeccable/mocks/decision/challenger-akari.png",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-akari-light-sculpture-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-akari-light-sculpture.webp"
+    },
+    {
+      "id": "challenger-teletext",
+      "kind": "challenger",
+      "catalogId": "broadcast-programming-teletext-service",
+      "label": "Teletext Magazine",
+      "verdict": "competitive",
+      "lineage": "A broadcast teletext magazine, forty columns by twenty-four rows",
+      "thesis": "The resume is a keyed magazine: page 100 is who he is now, and every fact occupies a cell.",
+      "palette": ["#000000", "#FFFF00", "#00FFFF", "#FFFFFF", "#FF0000"],
+      "materials": ["flat black", "block mosaic", "a bitmap face"],
+      "viewport": "A 40 by 24 grid on black. Header P100 DESHMUKH. Double-height yellow: SENIOR SOFTWARE ENGINEER. Cyan: BIZ4SOLUTIONS, APR 2025 – PRESENT. The email is a white line. The bottom row says 101–104 are the earlier roles.",
+      "case": "Holds clarity: a recruiter can read the role in one blink. It loses the audience’s scene, and it replaces the drag with a keypad.",
+      "risk": "Becomes a retro novelty the moment the grid stops being strict.",
+      "comp": ".impeccable/mocks/decision/challenger-teletext.png",
+      "hero": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service.webp"
+    },
+    {
+      "id": "challenger-linocut",
+      "kind": "challenger",
+      "catalogId": "posters-covers-sleeves-taller-grafica-linocut",
+      "label": "Linocut Broadside",
+      "verdict": "declined",
+      "lineage": "A strike poster gouged from one block",
+      "thesis": "The role is a demand carved into the same sheet as the figure.",
+      "palette": ["#141210", "#E7D7B8", "#F4F0E6"],
+      "materials": ["black relief ink", "newsprint", "a chisel gouge"],
+      "viewport": "One sheet, a figure filling three quarters, the designation cut underneath with the same knife.",
+      "case": "A strike poster turns a still-employed engineer into a campaign.",
+      "kept": "Identity is cut into the material at monumental scale, not captioned beside it.",
+      "risk": "Reads political, which this record is not.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-taller-grafica-linocut-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-taller-grafica-linocut.webp"
+    },
+    {
+      "id": "challenger-garden",
+      "kind": "challenger",
+      "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "Garden Guide Map",
+      "verdict": "declined",
+      "lineage": "A summer zoo map of swelling colour lobes",
+      "thesis": "Each employer is a headland, and the present job owns the sheet.",
+      "palette": ["#F5F1E4", "#8ED462", "#2C2E2A", "#F5E211"],
+      "materials": ["flat unmodulated colour", "a cream ground showing through as water"],
+      "viewport": "One green lobe leaves the frame on two sides, the name set in a single grotesk, a yellow capsule for email.",
+      "case": "A garden map is a day out, not a hiring decision.",
+      "kept": "The current role swells until it leaves the frame. Earlier roles stay coastlines, not equal cards.",
+      "risk": "Cheerful in a way that softens nine years of enterprise work.",
+      "hero": "https://impeccable.style/worlds/cards/aww2-zoo-gardens-guide-map-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/aww2-zoo-gardens-guide-map.webp"
+    },
+    {
+      "id": "challenger-cel",
+      "kind": "challenger",
+      "catalogId": "cinema-cinematography-editing-multiplane-cel-dawn",
+      "label": "Multiplane Dawn",
+      "verdict": "declined",
+      "lineage": "Hand-painted forest planes and one lamp in a cottage window",
+      "thesis": "Time is depth: the near plane is now, the far ridge is 2017.",
+      "palette": ["#3E4F3A", "#8AA0A8", "#3A2A22", "#E7A15A"],
+      "materials": ["gouache planes", "mist", "one lamp"],
+      "viewport": "Layered forest, a cottage lamp as the only warm point, the name on the nearest clear cel.",
+      "case": "A forest dawn hides the office the work actually happens in.",
+      "kept": "The near plane and the far planes travel at different speeds.",
+      "risk": "Picturesque, and the job disappears into the painting.",
+      "hero": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn.webp"
+    },
+    {
+      "id": "challenger-ascii",
+      "kind": "challenger",
+      "catalogId": "medium-native-ascii-live-scene-render",
+      "label": "Glyph Scene",
+      "verdict": "declined",
+      "lineage": "A live scene drawn only with typewriter characters",
+      "thesis": "The tower and the name are one monospace grid, tone made by glyph density.",
+      "palette": ["#000000", "#E7A15A"],
+      "materials": ["amber phosphor", "a strict character grid"],
+      "viewport": "The facade rebuilt from glyphs, the lit bay the densest characters, the email a caption inside the same grid.",
+      "case": "Density hides the role a recruiter has to read in one pass.",
+      "kept": "One ink does all the modeling. No second accent.",
+      "risk": "A terminal costume, which is the portfolio this page is trying not to be.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ascii-live-scene-render-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-ascii-live-scene-render.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The developer portfolio this category always ships: a dark hero, a name, two buttons, then cards.",
+    "palette": ["#0A0A0F", "#6366F1", "#F1F5F9", "#1A1A2E"],
+    "materials": ["near-black ground", "indigo glow", "glass cards"],
+    "viewport": "Centered hello, the full name, a Senior Software Engineer badge, Get in Touch and View Resume, gradient orbs behind. The next section is a row of equal cards.",
+    "risk": "Indistinguishable from every other engineer template, including the site as it stands.",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}

@@ -1,233 +1,102 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane } from "react-icons/fa";
 import resumeData from "../data/resumeData";
-import "./Contact.css";
+import { ArrowRight } from "./Icons";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
-  }),
-};
+const empty = { name: "", email: "", message: "" };
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const d = resumeData;
+  const [form, setForm] = useState(empty);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setStatus("sending");
     setError("");
-
     try {
-      // Send data to Formspree endpoint
-      const response = await fetch("https://formspree.io/f/mzdyozrv", {
+      const res = await fetch(d.formspreeEndpoint, {
         method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        })
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
-
-      if (response.ok) {
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
-        setFormData({ name: "", email: "", subject: "", message: "" });
+      if (res.ok) {
+        setStatus("sent");
+        setForm(empty);
       } else {
-        const data = await response.json();
-        setError(data.error || "Oops! There was a problem submitting your form");
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "The message didn’t go through. Please try again, or email me directly.");
+        setStatus("error");
       }
-    } catch (err) {
-      setError("Oops! There was a problem submitting your form");
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      setError("You seem to be offline. Please try again, or email me directly.");
+      setStatus("error");
     }
   };
 
-  const contactCards = [
-    {
-      icon: <FaMapMarkerAlt />,
-      title: "Address",
-      value: resumeData.contact.address,
-      color: "var(--accent-primary)",
-    },
-    {
-      icon: <FaPhone />,
-      title: "Phone",
-      value: resumeData.contact.phone,
-      color: "var(--accent-emerald)",
-    },
-    {
-      icon: <FaEnvelope />,
-      title: "Email",
-      value: resumeData.about.email,
-      color: "var(--accent-pink)",
-    },
-  ];
-
   return (
-    <section id="contact" className="contact section-padding">
-      <div className="container">
-        <motion.div
-          className="section-header"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-        >
-          <span className="section-label">Say Hello</span>
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">Feel free to reach out for collaborations or just a friendly hello</p>
-        </motion.div>
+    <section id="contact" className="contact" aria-labelledby="contact-h">
+      <div className="contact__glow" aria-hidden="true" />
+      <div className="wrap contact__pad">
+        <h2 id="contact-h" className="disp contact__title">
+          Let’s build
+          <br />
+          <span>something.</span>
+        </h2>
 
-        {/* Contact Info Cards */}
-        <div className="contact__cards">
-          {contactCards.map((card, i) => (
-            <motion.div
-              key={i}
-              className="contact__card glass-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              custom={i}
-            >
-              <div
-                className="contact__card-icon"
-                style={{ background: `${card.color}15`, color: card.color }}
-              >
-                {card.icon}
-              </div>
-              <h4 className="contact__card-title">{card.title}</h4>
-              <p className="contact__card-value">{card.value}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Contact Form */}
-        <motion.div
-          className="contact__form-wrapper glass-card"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          custom={3}
-        >
-          <div className="contact__form-header">
-            <h3>Send me a message</h3>
-            <p>I&apos;ll get back to you as soon as possible</p>
+        <div className="contact__grid">
+          <div className="contact__info">
+            <p className="contact__intro">Hiring for React, Angular or mobile? Email is the fastest way to reach me.</p>
+            <a className="mail-big disp" href={`mailto:${d.email}`}>{d.email}</a>
+            <dl className="contact__dl">
+              {d.phone && (
+                <>
+                  <dt>Phone</dt>
+                  <dd><a className="dark-link" href={d.phoneHref}>{d.phone}</a></dd>
+                </>
+              )}
+              <dt>Based in</dt>
+              <dd>{d.location}</dd>
+              <dt>Profiles</dt>
+              <dd className="contact__profiles">
+                {d.social.map((s) => (
+                  <a key={s.name} className="dark-link" href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+                ))}
+              </dd>
+            </dl>
           </div>
 
-          <form className="contact__form" onSubmit={handleSubmit} id="contactForm">
-            <div className="contact__form-grid">
-              <div className="contact__field">
-                <label htmlFor="contact-name" className="contact__label">Name</label>
-                <input
-                  type="text"
-                  id="contact-name"
-                  name="name"
-                  className="contact__input"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your name"
-                />
+          <form className="form" onSubmit={onSubmit} aria-label="Send a message">
+            <div className="form__row">
+              <div className="field-wrap">
+                <label htmlFor="f-name">Name</label>
+                <input className="field" id="f-name" name="name" type="text" autoComplete="name" required placeholder="Your name" value={form.name} onChange={onChange} />
               </div>
-
-              <div className="contact__field">
-                <label htmlFor="contact-email" className="contact__label">Email</label>
-                <input
-                  type="email"
-                  id="contact-email"
-                  name="email"
-                  className="contact__input"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="your@email.com"
-                />
+              <div className="field-wrap">
+                <label htmlFor="f-email">Email</label>
+                <input className="field" id="f-email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" value={form.email} onChange={onChange} />
               </div>
             </div>
-
-            <div className="contact__field">
-              <label htmlFor="contact-subject" className="contact__label">Subject</label>
-              <input
-                type="text"
-                id="contact-subject"
-                name="subject"
-                className="contact__input"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="What's this about?"
-              />
+            <div className="field-wrap">
+              <label htmlFor="f-msg">Message</label>
+              <textarea className="field" id="f-msg" name="message" rows="4" required placeholder="The role, the team, or the product you want to build" value={form.message} onChange={onChange} />
             </div>
-
-            <div className="contact__field">
-              <label htmlFor="contact-message" className="contact__label">Message</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                className="contact__input contact__textarea"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                placeholder="Your message..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="btn btn--primary contact__submit"
-              id="contact-submit-btn"
-              disabled={isSubmitting}
-            >
-              <FaPaperPlane />
-              {isSubmitting ? "Sending..." : "Send Message"}
+            <button className="btn btn--hot btn--lg btn--block press" type="submit" disabled={status === "sending"}>
+              {status === "sending" ? "Sending…" : "Send message"} <ArrowRight />
             </button>
-
-            {submitted && (
-              <motion.p
-                className="contact__success"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                ✓ Thank you! Your message has been sent successfully.
-              </motion.p>
-            )}
-
-            {error && (
-              <motion.p
-                className="contact__error"
-                style={{ color: "#ff4d4f", marginTop: "1rem", textAlign: "center" }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                {error}
-              </motion.p>
-            )}
+            <p className="form__status" role="status" aria-live="polite">
+              {status === "sent" && <span className="form__ok">Thanks — your message is on its way. I’ll reply soon.</span>}
+              {status === "error" && <span className="form__err">{error}</span>}
+            </p>
           </form>
-        </motion.div>
+        </div>
+
+        <footer className="footer">
+          <span>© {new Date().getFullYear()} {d.name}</span>
+          <span className="mono">Built with React · Hosted on GitHub Pages</span>
+        </footer>
       </div>
     </section>
   );
